@@ -45,17 +45,25 @@ public class FuncionariosController {
     public ResponseEntity<String> save(@RequestBody Funcionario funcionario) {
         service.cadastrarFuncionario(funcionario);
         System.out.println("cadastrado");
-        return ResponseEntity.ok("Cadastrado com sucesso!");
+        return ResponseEntity.status(HttpStatus.CREATED).body("Funcionario cadastrado com sucesso!");
         // repository.save(funcionario);
     }
 
 
     @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable Long id){
-        repository.deleteById(id);
+    public ResponseEntity<String> delete(@PathVariable Long id){
+        service.deletarFuncionario(id);
+        return ResponseEntity.status(HttpStatus.OK).body("Funcionario deletado!");
+        // repository.deleteById(id);
     }
 
-    // @PutMapping("/update/{id}")
+    @PutMapping("/update/{id}")
+    public ResponseEntity<String> update(@PathVariable Long id, @RequestBody Funcionario funcionario){
+        service.atualizarFuncionario(id, funcionario);
+        return ResponseEntity.status(HttpStatus.OK).body("Funcionario atualizado!");
+        
+
+    }
 
 
     

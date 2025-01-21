@@ -1,13 +1,16 @@
 package com.example.Funcionarios.exceptions;
 
-public class IDNotFoundException extends RuntimeException {
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
+public class IDNotFoundException extends ResponseStatusException {
     
     public IDNotFoundException(){
-        super("Id não encontrado!");
+        super(HttpStatus.NOT_FOUND, "Id fornecido não encontrado!");
     }
 
     public IDNotFoundException(String message){
-        super(message);
+        super(HttpStatus.NOT_FOUND, message);
     }
 }
 
