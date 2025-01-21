@@ -20,6 +20,8 @@ import com.example.Funcionarios.repository.FuncionariosRepository;
 import com.example.Funcionarios.repository.FuncionariosResponseDTO;
 import com.example.Funcionarios.service.FuncionariosService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping("/funcionarios")
 public class FuncionariosController {
@@ -30,17 +32,20 @@ public class FuncionariosController {
     @Autowired
     private FuncionariosService service;
 
+    @Operation(description = "Lista todos os funcionarios do banco de dados.")
     @GetMapping
     public List<FuncionariosResponseDTO> findAll() {
         List <FuncionariosResponseDTO> funcionarioList = repository.findAll().stream().map(FuncionariosResponseDTO::new).toList();
         return funcionarioList;
     }
 
+    @Operation(description = "Procura um funcionario atravez de seu ID.")
     @GetMapping("/{id}")
     public Funcionario findById(@PathVariable Long id) {
         return service.findByIdService(id); 
     }
 
+    @Operation(description = "Cadastra um novo funcionario, não é necessario inserir um ID no body.")
     @PostMapping
     public ResponseEntity<String> save(@RequestBody Funcionario funcionario) {
         service.cadastrarFuncionario(funcionario);
@@ -49,7 +54,7 @@ public class FuncionariosController {
         // repository.save(funcionario);
     }
 
-
+    @Operation(description = "Deleta um usuario atravez do seu ID.")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable Long id){
         service.deletarFuncionario(id);
@@ -57,6 +62,7 @@ public class FuncionariosController {
         // repository.deleteById(id);
     }
 
+    @Operation(description = "Atualiza um funcionario, precisando fornecer o ID do mesmo que sera atualizado, não precisando fornecer o ID no body.")
     @PutMapping("/update/{id}")
     public ResponseEntity<String> update(@PathVariable Long id, @RequestBody Funcionario funcionario){
         service.atualizarFuncionario(id, funcionario);
