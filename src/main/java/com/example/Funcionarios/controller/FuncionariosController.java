@@ -38,7 +38,7 @@ public class FuncionariosController {
 
     @GetMapping("/{id}")
     public Funcionario findById(@PathVariable Long id) {
-        return repository.findById(id).orElse(null);   
+        return service.findByIdService(id); 
     }
 
     @PostMapping
@@ -60,9 +60,7 @@ public class FuncionariosController {
     @PutMapping("/update/{id}")
     public ResponseEntity<String> update(@PathVariable Long id, @RequestBody Funcionario funcionario){
         service.atualizarFuncionario(id, funcionario);
-        return ResponseEntity.status(HttpStatus.OK).body("Funcionario atualizado!");
-        
-
+        return ResponseEntity.status(HttpStatus.OK).body("Funcionario atualizado!");  
     }
 
 

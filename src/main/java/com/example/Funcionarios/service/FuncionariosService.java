@@ -13,6 +13,13 @@ import com.example.Funcionarios.repository.FuncionariosRepository;
 public class FuncionariosService {
     @Autowired
     private FuncionariosRepository repository;
+
+    public Funcionario findByIdService(Long id){
+        repository.findById(id).orElseThrow(IDNotFoundException::new);
+
+        return repository.findById(id).orElse(null);
+
+    }
     
 
     public ResponseEntity<String> cadastrarFuncionario(Funcionario funcionario) {
