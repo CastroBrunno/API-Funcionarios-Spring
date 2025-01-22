@@ -127,7 +127,7 @@ src/
 
 A seguir estão alguns exemplos de como utilizar os endpoints da API:
 
-# Criar um novo funcionário
+## Criar um novo funcionário
 
 POST `/funcionarios`
 
@@ -139,13 +139,13 @@ POST `/funcionarios`
 }
 ```
 
-# Listar Todos os Funcionários
+## Listar Todos os Funcionários
 GET `/funcionarios`
 
-# Buscar Funcionário por ID
+## Buscar Funcionário por ID
 GET `funcionario/{id}`
 
-# Atualizar um Funcionário
+## Atualizar um Funcionário
 PUT `funcionario/{id}`
 
 ```bash
@@ -157,7 +157,7 @@ PUT `funcionario/{id}`
 
 ```
 
-# Excluir um Funcionário
+## Excluir um Funcionário
 DELETE `/funcionario`
 
 ## Contribuindo
