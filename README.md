@@ -84,4 +84,85 @@ mvn spring-boot:run
 - A API está disponivel em `http://localhost:8080.`
 - Você pode acessar a documentação interativa da API gerada pelo Swagger em `http://localhost:8080/swagger-ui.html.`
 
+## Estrutura de Diretórios
+
+A estrutura de diretórios do projeto é a seguinte:
+
+```bash
+src/
+ ├── main/
+ │    ├── java/
+ │    │    ├── com/
+ │    │    │    └── exemplo/
+ │    │    │        └── funcionarios/
+ │    │    │            ├── config/
+ │    │    │            │    └── SwaggerConfig.java
+ │    │    │            ├── controller/
+ │    │    │            │    └── FuncionariosController.java
+ │    │    │            ├── exceptions/
+ │    │    │            │    └── IDNotFoundException.java
+ │    │    │            ├── model/
+ │    │    │            │    └── Funcionario.java
+ │    │    │            ├── repository/
+ │    │    │            │    ├── FuncionariosRepository.java
+ │    │    │            │    └── FuncionariosResponseDTO.java
+ │    │    │            ├── service/
+ │    │    │            │    └── FuncionariosService.java
+ │    │    │            └── FuncionariosApplication.java
+ │    └── resources/
+ │         ├── application.properties
+ │         └── static/
+ │              └── swagger-ui/
+ └── test/
+      └── java/
+           └── com/
+               └── exemplo/
+                   └── funcionarios/
+                       └── FuncionariosApplicationTests.java
+
+
+```
+
+## Exemplos de Endpoints:
+
+A seguir estão alguns exemplos de como utilizar os endpoints da API:
+
+# Criar um novo funcionário
+
+POST `/funcionarios`
+
+```bash
+{
+  "nome": "João Silva",
+  "cargo": "Desenvolvedor",
+  "salario": 3500.00
+}
+```
+
+# Listar Todos os Funcionários
+GET `/funcionarios`
+
+# Buscar Funcionário por ID
+GET `funcionario/{id}`
+
+# Atualizar um Funcionário
+PUT `funcionario/{id}`
+
+```bash
+{
+  "nome": "João Silva",
+  "cargo": "Senior Developer",
+  "salario": 4500.00
+}
+
+```
+
+# Excluir um Funcionário
+DELETE `/funcionario`
+
+## Contribuindo
+
+Se você deseja contribuir para este projeto, fique à vontade para criar um fork do repositório, realizar as alterações e enviar um pull request.
+
+
 
