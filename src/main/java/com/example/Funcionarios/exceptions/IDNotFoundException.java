@@ -1,19 +1,13 @@
 package com.example.Funcionarios.exceptions;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
 
-public class IDNotFoundException extends ResponseStatusException {
-    
+public class IDNotFoundException extends RuntimeException {
     public IDNotFoundException(){
-        super(HttpStatus.NOT_FOUND, "Id fornecido não encontrado!");
+        super("O ID fornecido não corresponde a nenhum funcionário registrado. Por favor, verifique o valor e tente novamente.");
     }
-
+    
     public IDNotFoundException(String message){
-        super(HttpStatus.NOT_FOUND, message);
-    }
+        super(message);
+    }   
 }
-
-// public IdNotFoundException(Long id) {
-//     super("Id não encontrado: " + id);
-// }
+    //TODO: implementar metodo que consiga verificar que campo esta vazio e retornar uma exception mais completa

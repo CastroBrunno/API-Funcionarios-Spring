@@ -1,4 +1,4 @@
-package com.example.Funcionarios.repository;
+package com.example.Funcionarios.dto;
 
 import com.example.Funcionarios.model.Funcionario;
 

@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.example.Funcionarios.dto.FuncionariosResponseDTO;
 import com.example.Funcionarios.model.Funcionario;
 import com.example.Funcionarios.repository.FuncionariosRepository;
-import com.example.Funcionarios.repository.FuncionariosResponseDTO;
 import com.example.Funcionarios.service.FuncionariosService;
 
 import io.swagger.v3.oas.annotations.Operation;
